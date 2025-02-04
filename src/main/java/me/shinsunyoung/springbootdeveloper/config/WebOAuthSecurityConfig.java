@@ -58,6 +58,7 @@ public class WebOAuthSecurityConfig {
                 .addFilterBefore(tokenAuthenticationFilter(), UsernamePasswordAuthenticationFilter.class)
                 .authorizeRequests(auth -> auth
                         .requestMatchers(new AntPathRequestMatcher("/api/token")).permitAll()
+                        .requestMatchers(new AntPathRequestMatcher("/api/comments")).permitAll()  // 댓글 API 예외 처리
                         .requestMatchers(new AntPathRequestMatcher("/api/**")).authenticated()
                         .anyRequest().permitAll())
                 .oauth2Login(oauth2 -> oauth2
