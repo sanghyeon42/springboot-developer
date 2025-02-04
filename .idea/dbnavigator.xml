@@ -17,7 +17,7 @@
   </component>
   <component name="DBNavigator.Project.DatabaseConsoleManager">
     <connection id="3d982b06-eed2-48ff-9671-e75ed1edd2c2">
-      <console name="Connection" type="STANDARD" schema="" session="Main"><![CDATA[create database blog;
+      <console name="Connection" type="STANDARD" schema="blog" session="Main"><![CDATA[create database blog;
 use blog;
 
 create table article (
@@ -47,7 +47,17 @@ create table users (
     primary key (id)
 );
 
-show tables;]]></console>
+show tables;
+
+CREATE table comments (
+    id BIGINT AUTO_INCREMENT PRIMARY KEY,
+    article_id BIGINT NOT NULL,
+    author VARCHAR(255) NOT NULL,
+    content TEXT NOT NULL,
+    created_at timestamp
+);
+
+SELECT * FROM comments;]]></console>
     </connection>
   </component>
   <component name="DBNavigator.Project.DatabaseEditorStateManager">
@@ -68,6 +78,9 @@ show tables;]]></console>
   </component>
   <component name="DBNavigator.Project.ExecutionManager">
     <retain-sticky-names value="false" />
+  </component>
+  <component name="DBNavigator.Project.FileConnectionMappingManager">
+    <mapping file-url="file://$PROJECT_DIR$/src/main/resources/data.sql" connection-id="" session-id="MAIN" current-schema="" />
   </component>
   <component name="DBNavigator.Project.ObjectQuickFilterManager">
     <last-used-operator value="EQUAL" />
