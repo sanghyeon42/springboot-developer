@@ -60,6 +60,7 @@ public class BlogService {
         }
     }
 
+    @Transactional
     public Comment addComment(AddCommentRequest request, String userName) {
         Article article = blogRepository.findById(request.getArticleId())
                 .orElseThrow(() -> new IllegalArgumentException("not found : " + request.getArticleId()));
